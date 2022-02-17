@@ -1,0 +1,30 @@
+{
+  "name": "javascript-lab12",
+  "version": "1.0.0",
+  "description": "## Módulo 4: Javascript en el Navegador Conocer y manejar la API de Javascript utilizada por el navegador web.",
+  "main": "index.js",
+  "scripts": {
+    "start:simple-page": "http-server simple-page",
+    "start:assets-server": "node assets-server/server.js",
+    "start:real-page": "http-server real-page",
+    "test:ci": "lhci autorun "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/booleancl/javascript-lab12.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/booleancl/javascript-lab12/issues"
+  },
+  "homepage": "https://github.com/booleancl/javascript-lab12#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-server": "^0.12.3"
+  },
+  "devDependencies": {
+    "@lhci/cli": "^0.9.0"
+  }
+}

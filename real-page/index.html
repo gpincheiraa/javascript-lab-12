@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mi sitio web</title>
+    
+    <!-- CSS FILES -->
+    <!-- <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    
+    <!-- INLINE FILES -->
+    <style>
+      body {
+        color: rgb(255, 255, 255);
+        background-color: rgb(34,36,68);
+      }
+      .title {
+        display: flex;
+        height: 15vh;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .landing-carousel {
+        display: flex;
+        height: 85vh;
+      }
+      .carousel-info, .carousel {
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 20px;
+      }
+
+      .carousel-item {
+        overflow-y: hidden;
+      }
+      img {
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="title">
+        <h1>
+          Programadores más influyentes de la historia
+        </h1>
+      </div>
+
+      <div class="landing-carousel">
+        
+        <!-- carrousel info component -->
+        <div class="carousel-info">
+          <h2></h2>
+          <p></p>
+        </div>
+  
+        <!-- bootstrap carousel component -->
+        <div
+          id="landingCarousel"
+          class="carousel slide"
+          data-ride="carousel"
+          data-interval="4000"
+        >
+          <div class="carousel-inner">
+            <!-- carrousel item component 1 -->
+            <div
+              class="carousel-item"
+              data-name="Margaret Hamilton"
+              data-description="Margaret Hamilton es una científica computacional, matemática e ingeniera de Software. Fue directora de la División de Ingeniería de Software del Laboratorio de Instrumentación del MIT, ​ donde con su equipo desarrolló el software de navegación 'on-board' para el Programa Espacial Apolo"
+            >
+              <img class="d-block w-100" src="https://upload.wikimedia.org/wikipedia/commons/d/db/Margaret_Hamilton_-_restoration.jpg" alt="Margaret Hamilton Picture">
+            </div>
+  
+            <!-- carrousel item component 2 -->
+            <div
+              class="carousel-item active"
+              data-name="Linus Torvald"
+              data-description="Linus Benedict Torvalds es un ingeniero de software finlandés-estadounidense, ​ conocido por iniciar y mantener el desarrollo del kernel Linux, basándose en el sistema operativo libre Minix creado por Andrew S. Tanenbaum y en algunas herramientas, varias utilidades y los compiladores desarrollados por el proyecto GNU"
+            >
+              <img class="d-block w-100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/LinuxCon_Europe_Linus_Torvalds_05.jpg/1024px-LinuxCon_Europe_Linus_Torvalds_05.jpg" alt="Linus Torvalds picture">
+            </div>
+  
+            <!-- carrousel item component 3 -->
+            <div
+              class="carousel-item"
+              data-name="Sister Mary Kenneth Keller"
+              data-description="Mary Kenneth Keller fue una religiosa católica pionera informática estadounidense y la primera mujer doctorada en informática en Estados Unidos. Se doctoró el 7 de junio de 1965 el mismo día que también lo hizo Irving Tang convirtiéndose ambos en las primeras personas doctoradas en informática en Estados Unidos"
+            >
+              <img class="d-block w-100" src="https://onwisconsin.uwalumni.com/content/uploads/2019/05/Sister-Mary-Kenneth-Keller1.jpg" alt="Sister Mary Kenneth Keller picture">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ¿¿ACÁ FUNCIONARÁ?? -->
+    <!-- <script>
+      $('#landingCarousel').on('slide.bs.carousel', function (direction, target) {
+        console.log(target)
+      })
+    </script> -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
+    <script>
+      const app = {
+        carouselWrapper: $('#landingCarousel'),
+
+        getActiveItemData() {
+          const activeItem = this.carouselWrapper
+            .find('.carousel-item.active')
+          return activeItem.data()
+        },
+
+        setActiveName() {
+          const carouselInfoName = $('.carousel-info h2')
+          const carouselInfoDescription = $('.carousel-info p')
+          const { name, description } = this.getActiveItemData()
+          
+          carouselInfoName.text(name)
+          carouselInfoDescription.text(description)
+        },
+
+        init() {
+          this.carouselWrapper.on('slid.bs.carousel', () => this.setActiveName())
+
+          this.setActiveName()
+        }
+      }
+
+      app.init()
+    </script>
+  </body>
+</html>
